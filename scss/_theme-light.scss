@@ -1,0 +1,18 @@
+:root,
+[data-bs-theme="light"] {
+    --bs-box-bg: #{$gray-100};
+    --bs-body-bg: #{$gray-100};
+    --bs-header-bg: #{$white};
+    --bs-header-text-color: #{$dark};
+    --bs-text-color: #{$gray-800};
+    --bs-footer-bg: #{$gray-800};
+    --bs-footer-alt-bg: #{$gray-900};
+    --bs-border-box-color: #{$gray-500};
+    --bs-border-color: #{$gray-500};
+    --bs-form-bg: #{$gray-300};
+    --bs-text-dark-color: #{$white};
+    --bs-secondary-color: #{$muted};
+    --bs-form-text-color: #{$gray-700};
+    --bs-text-white-rgb: #{$white};
+    --bs-icon-bg: #{$white};
+}

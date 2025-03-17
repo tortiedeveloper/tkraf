@@ -1,0 +1,51 @@
+[data-bs-theme="dark"] {
+    $gray-100: #141c26;
+    $gray-200: #151f2b;
+    $gray-300: #1a2532;
+    $gray-400: #ecf0ff;
+    $gray-500: #adb5bd;
+    $gray-600: #98a0aa;
+    $gray-700: #ced4da;
+    $gray-800: #eff2f7;
+    $gray-900: #f3f6f9;
+
+    $grays: (
+        "100": $gray-100,
+        "200": $gray-200,
+        "300": $gray-300,
+        "400": $gray-400,
+        "500": $gray-500,
+        "600": $gray-600,
+        "700": $gray-700,
+        "800": $gray-800,
+        "900": $gray-900,
+    );
+
+    // Prefix for :root CSS variables
+    @each $color, $value in $grays {
+        --bs-gray-#{$color}: #{$value};
+    }
+
+    @function hexToRGB($hex) {
+        @return red($hex), green($hex), blue($hex);
+    }
+
+    --bs-body-bg: #{$gray-100};
+    --bs-body-color: #{$gray-900};
+    --bs-border-box-color: #{$gray-100};
+    --bs-header-bg: #{$gray-100};
+    --bs-header-text-color: #{$gray-900} !important;
+    --bs-light-rgb: #{$gray-200};
+    --bs-box-bg: #{$gray-300};
+    --bs-text-color: #{$gray-900};
+    --bs-white-rgb: #{hexToRGB($gray-300)};
+    --bs-footer-bg: #{$gray-200};
+    --bs-footer-alt-bg: #{$gray-100};
+    --bs-border-color: #{$gray-300};
+    --bs-form-bg: #{$gray-200};
+    --bs-dark-rgb: #{hexToRGB($gray-400)};
+    --bs-secondary-color: #{$gray-600};
+    --bs-text-white-rgb: #{hexToRGB($gray-900)};
+    --bs-form-text-color: #{$gray-900};
+    --bs-icon-bg: #{$gray-100};
+}
