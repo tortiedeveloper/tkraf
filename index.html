@@ -181,6 +181,73 @@
             width: 280px; /* Fixed width for both cards */
         }
         
+        /* Application showcase styles */
+        .app-showcase {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .app-showcase h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .app-image-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            max-width: 100%;
+            position: relative;
+        }
+        
+        .app-image {
+            width: 100%;
+            height: auto;
+            transition: all 0.5s ease;
+            display: block;
+        }
+        
+        .app-image-container:hover .app-image {
+            transform: scale(1.05);
+        }
+        
+        .app-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(86,180,234,0), rgba(108,228,124,0.7));
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .app-image-container:hover .app-overlay {
+            opacity: 1;
+        }
+        
+        .app-overlay-content {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .app-overlay-content h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .app-overlay-content p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
         /* Mobile adjustments */
         @media (max-width: 768px) {
             .contact-info-item {
@@ -362,8 +429,84 @@
     </section>
     <!-- END SERVICES -->
 
+    <!-- OUR APPLICATIONS -->
+    <section class="section" id="applications">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">Our Applications</h1>
+                    <div class="section-title-border mt-3"></div>
+                    <p class="section-subtitle text-muted text-center pt-4">Explore our innovative applications designed to solve real-world challenges.</p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <!-- GanoAI -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="app-showcase">
+                        <h4 class="gradient-text">GanoAI</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/ganoai.png" alt="GanoAI Application" class="app-image">
+                            <div class="app-overlay">
+                                <div class="app-overlay-content">
+                                    <a href="https://ai-ganoderma.com/" class="btn btn-sm btn-light">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SawitHarvest -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="app-showcase">
+                        <h4 class="gradient-text">SawitHarvest</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/sawitharvest.png" alt="SawitHarvest Application" class="app-image">
+                            <div class="app-overlay">
+                                <div class="app-overlay-content">
+                                    <a href="https://sawitharvest.com/" class="btn btn-sm btn-light">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CallAgri -->
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                    <div class="app-showcase">
+                        <h4 class="gradient-text">CallAgri</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/callagri.png" alt="CallAgri Application" class="app-image">
+                            <div class="app-overlay">
+                                <div class="app-overlay-content">
+                                    <a href="https://callagri-ai.com/" class="btn btn-sm btn-light">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DiscussWithAnty -->
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                    <div class="app-showcase">
+                        <h4 class="gradient-text">DiscussWithAnty</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/discusswithanty.png" alt="DiscussWithAnty Application" class="app-image">
+                            <div class="app-overlay">
+                                <div class="app-overlay-content">
+                                    <a href="https://callagri-ai.com/" class="btn btn-sm btn-light">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OUR APPLICATIONS -->
+
     <!-- PORTFOLIO -->
-    <section class="section" id="portfolio">
+    <section class="section bg-light" id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -472,7 +615,7 @@
     <!-- END PORTFOLIO -->
 
     <!-- CONTACT SECTION -->
-    <section class="section bg-light" id="contact">
+    <section class="section" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -490,6 +633,7 @@
                             <h5>Phone</h5>
                             <p class="text-muted">+62 81111100981</p>
                         </div>
+
                         <div class="contact-info-item">
                             <i class="mdi mdi-email text-primary h3 mb-3 gradient-text"></i>
                             <h5>Email</h5>
