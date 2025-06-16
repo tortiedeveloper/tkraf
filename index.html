@@ -236,21 +236,34 @@
     /* ... (Aturan overlay tetap sama) ... */
 }
 
-/* Aturan BARU yang HANYA berlaku untuk kartu 
-  yang ingin kita samakan tingginya 
-*/
-.showcase-equal-height .app-image-container {
-    height: 0;
-    padding-top: 75%; /* Rasio aspek 4:3 */
-    background-color: #f8f9fa;
+/* KHUSUS untuk GameSawit & Gruuvix */
+.equal-height-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.showcase-equal-height .app-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%; /* Ubah tinggi menjadi 100% untuk mengisi kontainer */
-    object-fit: contain;
+.equal-height-wrapper > .col-lg-6 {
+    display: flex;
+}
+
+.equal-height-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.equal-height-card .app-image-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.equal-height-card .app-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
 }
         
         /* Mobile adjustments */
@@ -264,6 +277,61 @@
                 flex-direction: column;
             }
         }
+
+        /* CSS untuk Scrolling Logo */
+
+.logo-scroll-container {
+    width: 100%;
+    overflow: hidden; /* Ini adalah kunci untuk menyembunyikan bagian yang keluar layar */
+    padding: 30px 0;
+    /* Efek fade di sisi kiri dan kanan agar terlihat lebih halus */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.logo-scroll-track {
+    display: flex; /* Membuat semua logo berjajar ke samping */
+    align-items: center; /* Menjaga logo tetap di tengah secara vertikal */
+    /* Hitung lebar total: (lebar per logo + margin) * jumlah total logo */
+    /* Contoh: (150px + 40px) * 12 logo = 2280px */
+    width: calc(190px * 12); 
+    animation: scrollAnimation 30s linear infinite; /* Menerapkan animasi */
+}
+
+.client-logo {
+    width: 150px; /* Lebar setiap logo */
+    height: 60px; /* Tinggi setiap logo */
+    margin: 0 20px; /* Jarak antar logo */
+    flex-shrink: 0; /* Mencegah logo menyusut */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: grayscale(100%); /* Membuat logo menjadi abu-abu */
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%); /* Mengembalikan warna asli saat di-hover */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Definisi animasi scrolling */
+@keyframes scrollAnimation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* Geser ke kiri sejauh lebar 6 logo pertama */
+        transform: translateX(calc(-190px * 6)); 
+    }
+}
     </style>
 </head>
 
@@ -319,46 +387,48 @@
 
     <!-- CLIENT LOGO -->
     <section class="section-sm bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Adjusted to 5 logos with proper spacing -->
-                <div class="col-md-2 col-sm-4">
-                    <div class="client-images my-3 my-md-0">
-                        <img src="images/logo-ganoAI.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
+    <div class="logo-scroll-container">
+        <div class="logo-scroll-track">
+            <div class="client-logo">
+                <img src="images/logo-ganoAI.png" alt="GanoAI">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-callagri.png" alt="CallAgri">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-discusswithanty.png" alt="DiscussWithAnty">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-gamesawit.png" alt="GameSawit">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-gruuvix.png" alt="Gruuvix">
+            </div>
 
-                <div class="col-md-2 col-sm-4">
-                    <div class="client-images my-3 my-md-0">
-                        <img src="images/logo-sawitharvest-new.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-
-                <div class="col-md-2 col-sm-4">
-                    <div class="client-images my-3 my-md-0">
-                        <img src="images/logo-callagri.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-
-                <div class="col-md-2 col-sm-6">
-                    <div class="client-images my-3 my-md-0">
-                        <img src="images/logo-discusswithanty.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-                
-                <div class="col-md-2 col-sm-6">
-                    <div class="client-images my-3 my-md-0">
-                        <img src="images/logo-gamesawit.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="client-images my-3 my-md-0">
-                        <img src="images/logo-gruuvix.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
+            <div class="client-logo">
+                <img src="images/logo-ganoAI.png" alt="GanoAI">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-callagri.png" alt="CallAgri">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-discusswithanty.png" alt="DiscussWithAnty">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-gamesawit.png" alt="GameSawit">
+            </div>
+            <div class="client-logo">
+                <img src="images/logo-gruuvix.png" alt="Gruuvix">
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <!-- END CLIENT LOGO -->
 
     <!-- ABOUT SECTION -->
@@ -489,27 +559,36 @@
             </div>
         </div>
 
-        <div class="row mt-5 justify-content-center">
-            <div class="col-lg-6">
-                <div class="app-showcase showcase-equal-height">
-                    <h4 class="gradient-text">GameSawit</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/gamesawit.png" alt="GameSawit Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="https://tortiedeveloper.github.io/Game-Sawit/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+        <div class="row mt-5 justify-content-center equal-height-wrapper">
+    <div class="col-lg-6">
+        <div class="app-showcase equal-height-card">
+            <h4 class="gradient-text">GameSawit</h4>
+            <div class="app-image-container">
+                <img src="images/application/gamesawit1.png" alt="GameSawit Application" class="app-image">
+                <div class="app-overlay">
+                    <div class="app-overlay-content">
+                        <a href="https://tortiedeveloper.github.io/Game-Sawit/" target="_blank" class="btn btn-sm btn-light">Learn More</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="app-showcase showcase-equal-height">
-                    <h4 class="gradient-text">Gruuvix</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/gruuvix.png" alt="Gruuvix Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="https://gruuvix.com" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 mt-4 mt-lg-0">
+        <div class="app-showcase equal-height-card">
+            <h4 class="gradient-text">Gruuvix</h4>
+            <div class="app-image-container">
+                <img src="images/application/gruuvix.png" alt="Gruuvix Application" class="app-image">
+                <div class="app-overlay">
+                    <div class="app-overlay-content">
+                        <a href="https://gruuvix.com" target="_blank" class="btn btn-sm btn-light">Learn More</a>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
+    </div>
+</div>
+
     </div>
 </section>
     <!-- END OUR APPLICATIONS -->
