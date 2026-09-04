@@ -283,8 +283,8 @@
     display: flex; /* Membuat semua logo berjajar ke samping */
     align-items: center; /* Menjaga logo tetap di tengah secara vertikal */
     /* Hitung lebar total: (lebar per logo + margin) * jumlah total logo */
-    /* Contoh: (150px + 40px) * 12 logo = 2280px */
-    width: calc(190px * 12); 
+    /* 5 logo per set * 2 set = 10 logo: (150px + 40px) * 10 = 1900px */
+    width: calc(190px * 10); 
     animation: scrollAnimation 30s linear infinite; /* Menerapkan animasi */
 }
 
@@ -318,8 +318,8 @@
         transform: translateX(0);
     }
     to {
-        /* Geser ke kiri sejauh lebar 6 logo pertama */
-        transform: translateX(calc(-190px * 6)); 
+        /* Geser ke kiri sejauh lebar 5 logo pertama (satu set) */
+        transform: translateX(calc(-190px * 5)); 
     }
 }
     </style>
