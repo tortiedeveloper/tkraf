@@ -35,7 +35,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            height: 100%; /* Make sure cards are equal height */
+            height: 100%;
         }
         
         .modern-card:hover {
@@ -98,7 +98,7 @@
         
         .services-box i {
             font-size: 40px;
-           background: linear-gradient(135deg, #56b4ea, #6ce47c);
+            background: linear-gradient(135deg, #56b4ea, #6ce47c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -178,89 +178,88 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            width: 280px; /* Fixed width for both cards */
+            width: 280px;
         }
         
-        /* Application showcase styles (REVISI FINAL V2) */
+        /* Application showcase styles */
+        .app-showcase {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-/* Aturan Dasar untuk SEMUA Kartu */
-.app-showcase {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .app-showcase h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
 
-.app-showcase h4 {
-    font-weight: 600;
-    margin-bottom: 15px;
-}
+        .app-image-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            max-width: 100%;
+            position: relative;
+        }
 
-.app-image-container {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin: 0 auto;
-    max-width: 100%;
-    position: relative;
-}
+        .app-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(86,180,234,0), rgba(108,228,124,0.7));
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.app-image {
-    width: 100%;
-    height: auto; /* Biarkan tinggi alami secara default */
-    transition: all 0.5s ease;
-    display: block;
-}
+        .app-image-container:hover .app-overlay {
+            opacity: 1;
+        }
 
-.app-image-container:hover .app-image {
-    transform: scale(1.05);
-}
+        /* Aturan untuk menyejajarkan tinggi card */
+        .equal-height-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-.app-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(86,180,234,0), rgba(108,228,124,0.7));
-    opacity: 0;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .equal-height-card .app-image-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            padding: 15px;
+        }
 
-.app-image-container:hover .app-overlay {
-    opacity: 1;
-}
+        /* Aturan umum untuk gambar aplikasi */
+        .equal-height-card .app-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            transition: all 0.5s ease;
+        }
+        
+        .equal-height-card .app-image-container:hover .app-image {
+            transform: scale(1.05);
+        }
 
-.app-overlay-content {
-    /* ... (Aturan overlay tetap sama) ... */
-}
-
-/* KHUSUS untuk GameSawit & Gruuvix */
-.equal-height-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.equal-height-card .app-image-container {
-    flex-grow: 1;
-    display: flex;
-    align-items: stretch;
-}
-
-.equal-height-card .app-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
+        /* Aturan khusus untuk GameSawit agar ukurannya pas */
+        .gamesawit-img {
+            width: 100% !important;
+            max-height: none !important;
+        }
         
         /* Mobile adjustments */
         @media (max-width: 768px) {
             .contact-info-item {
                 width: 100%;
-                margin: 0 0 20px 0; /* Add vertical spacing on mobile */
+                margin: 0 0 20px 0;
             }
             
             .contact-wrapper {
@@ -269,59 +268,55 @@
         }
 
         /* CSS untuk Scrolling Logo */
+        .logo-scroll-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 30px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+        }
 
-.logo-scroll-container {
-    width: 100%;
-    overflow: hidden; /* Ini adalah kunci untuk menyembunyikan bagian yang keluar layar */
-    padding: 30px 0;
-    /* Efek fade di sisi kiri dan kanan agar terlihat lebih halus */
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-}
+        .logo-scroll-track {
+            display: flex;
+            align-items: center;
+            /* 6 logo per set * 5 set = 30 logo: (150px + 40px) * 30 */
+            width: calc(190px * 30);
+            animation: scrollAnimation 35s linear infinite;
+        }
 
-.logo-scroll-track {
-    display: flex; /* Membuat semua logo berjajar ke samping */
-    align-items: center; /* Menjaga logo tetap di tengah secara vertikal */
-    /* Hitung lebar total: (lebar per logo + margin) * jumlah total logo */
-    /* 5 logo per set * 5 set = 25 logo: (150px + 40px) * 25 */
-    width: calc(190px * 25); 
-    animation: scrollAnimation 30s linear infinite; /* Menerapkan animasi */
-}
+        .client-logo {
+            width: 150px;
+            height: 60px;
+            margin: 0 20px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.client-logo {
-    width: 150px; /* Lebar setiap logo */
-    height: 60px; /* Tinggi setiap logo */
-    margin: 0 20px; /* Jarak antar logo */
-    flex-shrink: 0; /* Mencegah logo menyusut */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
 
-.client-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    filter: grayscale(100%); /* Membuat logo menjadi abu-abu */
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
+        .client-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
 
-.client-logo:hover img {
-    filter: grayscale(0%); /* Mengembalikan warna asli saat di-hover */
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Definisi animasi scrolling */
-@keyframes scrollAnimation {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        /* Geser ke kiri sejauh lebar 5 logo pertama (satu set) */
-        transform: translateX(calc(-190px * 5)); 
-    }
-}
+        @keyframes scrollAnimation {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                /* Geser ke kiri sejauh lebar 6 logo pertama (satu set) */
+                transform: translateX(calc(-190px * 6));
+            }
+        }
     </style>
 </head>
 
@@ -377,86 +372,46 @@
 
     <!-- CLIENT LOGO -->
     <section class="section-sm bg-light">
-    <div class="logo-scroll-container">
-        <div class="logo-scroll-track">
-            <div class="client-logo">
-                <img src="images/logo-ganoAI.png" alt="GanoAI">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gamesawit.png" alt="GameSawit">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gruuvix.png" alt="Gruuvix">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-esg.png" alt="ESG">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-ganoAI.png" alt="GanoAI">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gamesawit.png" alt="GameSawit">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gruuvix.png" alt="Gruuvix">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-esg.png" alt="ESG">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-ganoAI.png" alt="GanoAI">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gamesawit.png" alt="GameSawit">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gruuvix.png" alt="Gruuvix">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-esg.png" alt="ESG">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-ganoAI.png" alt="GanoAI">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gamesawit.png" alt="GameSawit">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gruuvix.png" alt="Gruuvix">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-esg.png" alt="ESG">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-ganoAI.png" alt="GanoAI">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-sawitharvest-new.png" alt="SawitHarvest">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gamesawit.png" alt="GameSawit">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-gruuvix.png" alt="Gruuvix">
-            </div>
-            <div class="client-logo">
-                <img src="images/logo-esg.png" alt="ESG">
+        <div class="logo-scroll-container">
+            <div class="logo-scroll-track">
+                <!-- Set 1 -->
+                <div class="client-logo"><img src="images/logo-ganoAI.png" alt="GanoAI"></div>
+                <div class="client-logo"><img src="images/logo-sawitharvest-new.png" alt="SawitHarvest"></div>
+                <div class="client-logo"><img src="images/logo-gamesawit.png" alt="GameSawit"></div>
+                <div class="client-logo"><img src="images/logo-gruuvix.png" alt="Gruuvix"></div>
+                <div class="client-logo"><img src="images/logo-poldec.png" alt="POL-DEC"></div>
+                <div class="client-logo"><img src="images/logo-esg.png" alt="ESG"></div>
+                <!-- Set 2 -->
+                <div class="client-logo"><img src="images/logo-ganoAI.png" alt="GanoAI"></div>
+                <div class="client-logo"><img src="images/logo-sawitharvest-new.png" alt="SawitHarvest"></div>
+                <div class="client-logo"><img src="images/logo-gamesawit.png" alt="GameSawit"></div>
+                <div class="client-logo"><img src="images/logo-gruuvix.png" alt="Gruuvix"></div>
+                <div class="client-logo"><img src="images/logo-poldec.png" alt="POL-DEC"></div>
+                <div class="client-logo"><img src="images/logo-esg.png" alt="ESG"></div>
+                <!-- Set 3 -->
+                <div class="client-logo"><img src="images/logo-ganoAI.png" alt="GanoAI"></div>
+                <div class="client-logo"><img src="images/logo-sawitharvest-new.png" alt="SawitHarvest"></div>
+                <div class="client-logo"><img src="images/logo-gamesawit.png" alt="GameSawit"></div>
+                <div class="client-logo"><img src="images/logo-gruuvix.png" alt="Gruuvix"></div>
+                <div class="client-logo"><img src="images/logo-poldec.png" alt="POL-DEC"></div>
+                <div class="client-logo"><img src="images/logo-esg.png" alt="ESG"></div>
+                <!-- Set 4 -->
+                <div class="client-logo"><img src="images/logo-ganoAI.png" alt="GanoAI"></div>
+                <div class="client-logo"><img src="images/logo-sawitharvest-new.png" alt="SawitHarvest"></div>
+                <div class="client-logo"><img src="images/logo-gamesawit.png" alt="GameSawit"></div>
+                <div class="client-logo"><img src="images/logo-gruuvix.png" alt="Gruuvix"></div>
+                <div class="client-logo"><img src="images/logo-poldec.png" alt="POL-DEC"></div>
+                <div class="client-logo"><img src="images/logo-esg.png" alt="ESG"></div>
+                <!-- Set 5 -->
+                <div class="client-logo"><img src="images/logo-ganoAI.png" alt="GanoAI"></div>
+                <div class="client-logo"><img src="images/logo-sawitharvest-new.png" alt="SawitHarvest"></div>
+                <div class="client-logo"><img src="images/logo-gamesawit.png" alt="GameSawit"></div>
+                <div class="client-logo"><img src="images/logo-gruuvix.png" alt="Gruuvix"></div>
+                <div class="client-logo"><img src="images/logo-poldec.png" alt="POL-DEC"></div>
+                <div class="client-logo"><img src="images/logo-esg.png" alt="ESG"></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     <!-- END CLIENT LOGO -->
 
     <!-- ABOUT SECTION -->
@@ -465,7 +420,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <h1 class="section-title text-center">About Us</h1>
-                   <div class="section-title-border mt-3"></div>
+                    <div class="section-title-border mt-3"></div>
                     <p class="section-subtitle text-muted text-center pt-4">Tortie Kreatif Teknologi is a technology company focused on innovation and technological development, especially in application development and digital content creation.</p>
                 </div>
             </div>
@@ -538,67 +493,79 @@
     <!-- END SERVICES -->
 
     <!-- OUR APPLICATIONS -->
-   <section class="section" id="applications">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <h1 class="section-title text-center">Our Applications</h1>
-                <div class="section-title-border mt-3"></div>
-                <p class="section-subtitle text-muted text-center pt-4">Explore our innovative applications designed to solve real-world challenges.</p>
+    <section class="section" id="applications">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="section-title text-center">Our Applications</h1>
+                    <div class="section-title-border mt-3"></div>
+                    <p class="section-subtitle text-muted text-center pt-4">Explore our innovative applications designed to solve real-world challenges.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row mt-5">
-            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                <div class="app-showcase equal-height-card">
-                    <h4 class="gradient-text">Gruuvix</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/gruuvix.png" alt="Gruuvix Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="http://www.gruuvix.com" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+            <!-- Baris 1: Gruuvix | POL-DEC | ESG Synthesis -->
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="app-showcase equal-height-card">
+                        <h4 class="gradient-text">Gruuvix</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/gruuvix.png" alt="Gruuvix Application" class="app-image">
+                            <div class="app-overlay"><div class="app-overlay-content"><a href="http://www.gruuvix.com" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="app-showcase equal-height-card">
+                        <h4 class="gradient-text">POL-DEC</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/poldec.png" alt="POL-DEC Application" class="app-image">
+                            <div class="app-overlay"><div class="app-overlay-content"><a href="https://poldecinstitute.com/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="app-showcase equal-height-card">
+                        <h4 class="gradient-text">ESG Synthesis</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/esg.png" alt="ESG Application" class="app-image">
+                            <div class="app-overlay"><div class="app-overlay-content"><a href="https://esgsynthesis.com/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                <div class="app-showcase equal-height-card">
-                    <h4 class="gradient-text">GameSawit</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/gamesawit1.png" alt="GameSawit Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="https://tortiedeveloper.github.io/Game-Sawit/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                <div class="app-showcase equal-height-card">
-                    <h4 class="gradient-text">ESG Synthesis</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/esg.png" alt="ESG Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="https://esgsynthesis.com/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row mt-5 justify-content-center">
-            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                <div class="app-showcase equal-height-card">
-                    <h4 class="gradient-text">GanoAI</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/gano-new.png" alt="GanoAI Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="https://gano-ai.com/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+            <!-- Baris 2: GanoAI | GameSawit | SawitHarvest -->
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="app-showcase equal-height-card">
+                        <h4 class="gradient-text">GanoAI</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/gano-new.png" alt="GanoAI Application" class="app-image">
+                            <div class="app-overlay"><div class="app-overlay-content"><a href="https://gano-ai.com/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                <div class="app-showcase equal-height-card">
-                    <h4 class="gradient-text">SawitHarvest</h4>
-                    <div class="app-image-container">
-                        <img src="images/application/sawitharvest-new.png" alt="SawitHarvest Application" class="app-image">
-                        <div class="app-overlay"><div class="app-overlay-content"><a href="https://sawitharvest.id/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="app-showcase equal-height-card">
+                        <h4 class="gradient-text">GameSawit</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/gamesawit2.png" alt="GameSawit Application" class="app-image gamesawit-img">
+                            <div class="app-overlay"><div class="app-overlay-content"><a href="https://tortiedeveloper.github.io/Game-Sawit/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="app-showcase equal-height-card">
+                        <h4 class="gradient-text">SawitHarvest</h4>
+                        <div class="app-image-container">
+                            <img src="images/application/sawitharvest-new.png" alt="SawitHarvest Application" class="app-image">
+                            <div class="app-overlay"><div class="app-overlay-content"><a href="https://sawitharvest.id/" target="_blank" class="btn btn-sm btn-light">Learn More</a></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</section>
+    </section>
     <!-- END OUR APPLICATIONS -->
 
     <!-- PORTFOLIO -->
